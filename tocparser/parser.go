@@ -60,7 +60,7 @@ func (parser Parser) HasEntry(name string) bool {
 	return false
 }
 
-// GetEntry Get an entry. Returns an empty string if not found.
+// GetEntry Get an entry. Returns an empty string if entry not found.
 func (parser Parser) GetEntry(name string) string {
 	if value, found := parser.values[name]; found {
 		return value
