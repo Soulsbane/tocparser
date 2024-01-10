@@ -48,5 +48,5 @@ func (parser *Parser) LoadString(content string) bool {
 		}
 	}
 
-	return false
+	return true
 }
