@@ -35,7 +35,7 @@ func (parser *Parser) LoadString(content string) bool {
 			if len(values) == 2 {
 				key := strings.Trim(values[0], " ")
 				value := strings.Trim((values[1]), " ")
-				parser.values[key] = value
+				parser.AddEntry(key, value)
 			}
 			// Line is a comment
 		} else if len(line) == 0 || (strings.HasPrefix(line, "#") && !strings.Contains(line, ":")) {
@@ -49,6 +49,11 @@ func (parser *Parser) LoadString(content string) bool {
 	}
 
 	return true
+}
+
+// AddEntry Adds a new key/value pair to the parser.
+func (parser *Parser) AddEntry(key string, value string) {
+	parser.values[key] = value
 }
 
 // HasEntry Check if an entry exists.

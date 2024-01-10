@@ -24,6 +24,8 @@ func TestParser_LoadString(t *testing.T) {
 
 	files := parser.GetFiles()
 	is.Equal(len(files), 2)
-
 	is.Equal(parser.GetNumFiles(), 2)
+
+	parser.AddEntry("Test", "Test")
+	is.Equal(parser.GetEntry("Test"), "Test")
 }
