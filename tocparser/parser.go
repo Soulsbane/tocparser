@@ -50,3 +50,12 @@ func (parser *Parser) LoadString(content string) bool {
 
 	return true
 }
+
+// HasEntry Check if an entry exists.
+func (parser Parser) HasEntry(name string) bool {
+	if _, found := parser.values[name]; found {
+		return true
+	}
+
+	return false
+}

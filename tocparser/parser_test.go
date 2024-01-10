@@ -12,4 +12,6 @@ func TestParser_LoadString(t *testing.T) {
 	parser := New()
 	parsed := parser.LoadString(simpleToc)
 	is.True(parsed)
+	is.True(parser.HasEntry("Interface"))
+	is.Equal(parser.HasEntry("Helloworld"), false)
 }
