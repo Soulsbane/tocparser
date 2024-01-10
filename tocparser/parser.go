@@ -52,7 +52,7 @@ func (parser *Parser) LoadString(content string) bool {
 }
 
 // HasEntry Check if an entry exists.
-func (parser Parser) HasEntry(name string) bool {
+func (parser *Parser) HasEntry(name string) bool {
 	if _, found := parser.values[name]; found {
 		return true
 	}
@@ -61,7 +61,7 @@ func (parser Parser) HasEntry(name string) bool {
 }
 
 // GetEntry Get an entry. Returns an empty string if entry not found.
-func (parser Parser) GetEntry(name string) string {
+func (parser *Parser) GetEntry(name string) string {
 	if value, found := parser.values[name]; found {
 		return value
 	}
@@ -70,7 +70,7 @@ func (parser Parser) GetEntry(name string) string {
 }
 
 // GetEntry Get an entry. Returns the default value if entry is not found.
-func (parser Parser) GetEntryOrDefault(name string, defaultValue string) string {
+func (parser *Parser) GetEntryOrDefault(name string, defaultValue string) string {
 	if value, found := parser.values[name]; found {
 		return value
 	}
@@ -79,11 +79,11 @@ func (parser Parser) GetEntryOrDefault(name string, defaultValue string) string 
 }
 
 // GetFileList Gets a list of files referenced in the TOC file.
-func (parser Parser) GetFiles() []string {
+func (parser *Parser) GetFiles() []string {
 	return parser.files
 }
 
 // GetFileList Gets a list of files referenced in the TOC file.
-func (parser Parser) GetNumFiles() int {
+func (parser *Parser) GetNumFiles() int {
 	return len(parser.files)
 }
