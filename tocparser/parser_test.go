@@ -21,4 +21,7 @@ func TestParser_LoadString(t *testing.T) {
 
 	hello := parser.GetEntryOrDefault("Helloworld", "Hello")
 	is.Equal(hello, "Hello")
+
+	files := parser.GetFileList()
+	is.Equal(len(files), 2)
 }
