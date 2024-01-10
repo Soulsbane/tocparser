@@ -14,4 +14,6 @@ func TestParser_LoadString(t *testing.T) {
 	is.True(parsed)
 	is.True(parser.HasEntry("Interface"))
 	is.Equal(parser.HasEntry("Helloworld"), false)
+	interfaceVersion := parser.GetEntry("Interface")
+	is.Equal(interfaceVersion, "90001")
 }
