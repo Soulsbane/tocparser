@@ -82,3 +82,8 @@ func (parser Parser) GetEntryOrDefault(name string, defaultValue string) string 
 func (parser Parser) GetFileList() []string {
 	return parser.files
 }
+
+// GetFileList Gets a list of files referenced in the TOC file.
+func (parser Parser) GetNumFiles() int {
+	return len(parser.files)
+}
