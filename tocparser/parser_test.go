@@ -22,7 +22,7 @@ func TestParser_LoadString(t *testing.T) {
 	hello := parser.GetEntryOrDefault("Helloworld", "Hello")
 	is.Equal(hello, "Hello")
 
-	files := parser.GetFileList()
+	files := parser.GetFiles()
 	is.Equal(len(files), 2)
 
 	is.Equal(parser.GetNumFiles(), 2)
