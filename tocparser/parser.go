@@ -68,3 +68,12 @@ func (parser Parser) GetEntry(name string) string {
 
 	return ""
 }
+
+// GetEntry Get an entry. Returns the default value if entry is not found.
+func (parser Parser) GetEntryOrDefault(name string, defaultValue string) string {
+	if value, found := parser.values[name]; found {
+		return value
+	}
+
+	return defaultValue
+}
