@@ -16,6 +16,7 @@ func New() Parser {
 	return parser
 }
 
+// LoadString Parses a string into key/value pairs split from the ':' character and returns true if successful.
 func (parser *Parser) LoadString(content string) bool {
 	if len(content) == 0 {
 		return false
