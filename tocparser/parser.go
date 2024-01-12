@@ -109,7 +109,7 @@ func (parser *Parser) GetNumFiles() int {
 	return len(parser.files)
 }
 
-// Dump dumps the key/value pairs to stdout
+// DumpEntries outputs the key/value pairs to stdout.
 func (parser *Parser) DumpEntries() {
 	for key, value := range parser.values {
 		fmt.Printf("%s => %s\n", key, value)
