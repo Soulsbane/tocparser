@@ -1,6 +1,7 @@
 package tocparser
 
 import (
+	"fmt"
 	"os"
 	"strings"
 )
@@ -106,4 +107,11 @@ func (parser *Parser) GetFiles() []string {
 // GetFileList Gets a list of files referenced in the TOC file.
 func (parser *Parser) GetNumFiles() int {
 	return len(parser.files)
+}
+
+// Dump dumps the key/value pairs to stdout
+func (parser *Parser) DumpEntries() {
+	for key, value := range parser.values {
+		fmt.Printf("%s => %s\n", key, value)
+	}
 }
