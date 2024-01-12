@@ -109,6 +109,11 @@ func (parser *Parser) GetAuthor() string {
 	return parser.GetEntryOrDefault("Author", "")
 }
 
+// GetInterface Gets the WoW interface version of the addon is written for or an empty string otherwise.
+func (parser *Parser) GetInterface() string {
+	return parser.GetEntryOrDefault("Interface", "")
+}
+
 // GetFileList Gets a list of files referenced in the TOC file.
 func (parser *Parser) GetFiles() []string {
 	return parser.files

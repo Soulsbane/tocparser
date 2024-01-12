@@ -34,4 +34,5 @@ func TestParser_LoadString(t *testing.T) {
 	is.Equal(parser.GetAuthor(), "Soulsbane")
 
 	is.Equal(parser.GetTitle(), "Test Addon")
+	is.Equal(parser.GetInterface(), "90001")
 }
