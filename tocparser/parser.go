@@ -1,6 +1,9 @@
 package tocparser
 
-import "strings"
+import (
+	"os"
+	"strings"
+)
 
 // Parser Used for parsing WoW TOC files.
 type Parser struct {
@@ -49,6 +52,18 @@ func (parser *Parser) LoadString(content string) bool {
 	}
 
 	return true
+}
+
+// LoadFile Loads a TOC file's contents into a string and calls ParseString
+func (parser *Parser) LoadFile(fileName string) error {
+	content, err := os.ReadFile(fileName)
+
+	if err != nil {
+		return err
+	}
+
+	parser.LoadString(string(content))
+	return nil
 }
 
 // AddEntry Adds a new key/value pair to the parser.
