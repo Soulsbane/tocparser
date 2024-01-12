@@ -99,7 +99,12 @@ func (parser *Parser) GetEntryOrDefault(name string, defaultValue string) string
 	return defaultValue
 }
 
-// GetAuthor Gets the author of the addon.
+// GetTitle Gets the title of the addon.
+func (parser *Parser) GetTitle() string {
+	return parser.GetEntryOrDefault("Title", "")
+}
+
+// GetTitle Gets the author of the addon.
 func (parser *Parser) GetAuthor(defaultName string) string {
 	return parser.GetEntryOrDefault("Author", defaultName)
 }
