@@ -99,6 +99,11 @@ func (parser *Parser) GetEntryOrDefault(name string, defaultValue string) string
 	return defaultValue
 }
 
+// GetAuthor Gets the author of the addon.
+func (parser *Parser) GetAuthor(defaultName string) string {
+	return parser.GetEntryOrDefault("Author", defaultName)
+}
+
 // GetFileList Gets a list of files referenced in the TOC file.
 func (parser *Parser) GetFiles() []string {
 	return parser.files

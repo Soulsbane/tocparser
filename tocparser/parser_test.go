@@ -28,4 +28,8 @@ func TestParser_LoadString(t *testing.T) {
 
 	parser.AddEntry("Test", "Test")
 	is.Equal(parser.GetEntry("Test"), "Test")
+
+	is.Equal(parser.GetAuthor("Test"), "Test")
+	parser.AddEntry("Author", "Soulsbane")
+	is.Equal(parser.GetAuthor("Test"), "Soulsbane")
 }
