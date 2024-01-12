@@ -29,9 +29,9 @@ func TestParser_LoadString(t *testing.T) {
 	parser.AddEntry("Test", "Test")
 	is.Equal(parser.GetEntry("Test"), "Test")
 
-	is.Equal(parser.GetAuthor("Test"), "Test")
+	is.Equal(parser.GetAuthor(), "")
 	parser.AddEntry("Author", "Soulsbane")
-	is.Equal(parser.GetAuthor("Test"), "Soulsbane")
+	is.Equal(parser.GetAuthor(), "Soulsbane")
 
 	is.Equal(parser.GetTitle(), "Test Addon")
 }

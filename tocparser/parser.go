@@ -105,8 +105,8 @@ func (parser *Parser) GetTitle() string {
 }
 
 // GetTitle Gets the author of the addon.
-func (parser *Parser) GetAuthor(defaultName string) string {
-	return parser.GetEntryOrDefault("Author", defaultName)
+func (parser *Parser) GetAuthor() string {
+	return parser.GetEntryOrDefault("Author", "")
 }
 
 // GetFileList Gets a list of files referenced in the TOC file.
