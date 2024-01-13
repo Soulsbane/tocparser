@@ -23,8 +23,10 @@ func TestParser_LoadString(t *testing.T) {
 	is.Equal(hello, "Hello")
 
 	files := parser.GetFiles()
-	is.Equal(len(files), 2)
+
 	is.Equal(parser.GetNumFiles(), 2)
+	is.Equal(files[0], "Addon.lua")
+	is.Equal(files[1], "Addon.toc")
 
 	parser.AddEntry("Test", "Test")
 	is.Equal(parser.GetEntry("Test"), "Test")
