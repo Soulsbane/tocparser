@@ -26,7 +26,7 @@ func (parser *Parser) LoadString(content string) bool {
 		return false
 	}
 
-	lines := strings.Split(string(content), "\n")
+	lines := strings.Split(content, "\n")
 
 	for _, line := range lines {
 		line := strings.TrimSpace(line)
@@ -38,7 +38,7 @@ func (parser *Parser) LoadString(content string) bool {
 			// Creates a pair from this example string "## Author: Soulsbane"
 			if len(values) == 2 {
 				key := strings.Trim(values[0], " ")
-				value := strings.Trim((values[1]), " ")
+				value := strings.Trim(values[1], " ")
 				parser.AddEntry(key, value)
 			}
 			// Line is a comment
