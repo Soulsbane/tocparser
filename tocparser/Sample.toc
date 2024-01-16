@@ -1,0 +1,18 @@
+## Interface: 100200
+## Title: Sample
+## Notes: A sample TOC file
+## Author: Soulsbane
+## IconTexture: 982414
+## X-WoWI-ID: 123489
+## X-Curse-Project-ID: 984321
+## Version: v1.0.0
+## OptionalDeps: Ace3
+## X-Embeds: Ace3
+## SavedVariables: SampleDB
+
+# Libraries
+Libs\Libs.xml
+
+# Add-On
+Sample.lua
+Config.lua

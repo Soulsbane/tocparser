@@ -38,3 +38,25 @@ func TestParser_LoadString(t *testing.T) {
 	is.Equal(parser.GetTitle(), "Test Addon")
 	is.Equal(parser.GetInterface(), "90001")
 }
+
+func TestParser_LoadFile(t *testing.T) {
+	is := is.New(t)
+	parser := New()
+
+	err := parser.LoadFile("Sample.toc")
+
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	is.Equal(parser.GetTitle(), "Sample")
+	is.Equal(parser.GetInterface(), "100200")
+	is.Equal(parser.GetAuthor(), "Soulsbane")
+
+	files := parser.GetFiles()
+
+	is.Equal(parser.GetNumFiles(), 3)
+	is.Equal(files[0], "Libs\\Libs.xml")
+	is.Equal(files[1], "Sample.lua")
+	is.Equal(files[2], "Config.lua")
+}
