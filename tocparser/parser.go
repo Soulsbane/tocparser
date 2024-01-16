@@ -29,11 +29,10 @@ func (parser *Parser) LoadString(content string) bool {
 	lines := strings.Split(content, "\n")
 
 	for _, line := range lines {
-		line := strings.TrimSpace(line)
+		trimmedLine := strings.TrimSpace(line)
 
-		if strings.HasPrefix(line, "##") {
-			line := strings.Trim(line, "#")
-			values := strings.SplitN(line, ":", 2)
+		if strings.HasPrefix(trimmedLine, "##") {
+			values := strings.SplitN(strings.Trim(trimmedLine, "#"), ":", 2)
 
 			// Creates a pair from this example string "## Author: Soulsbane"
 			if len(values) == 2 {
@@ -42,12 +41,9 @@ func (parser *Parser) LoadString(content string) bool {
 
 				parser.AddEntry(key, value)
 			}
-			// Line is a comment
-			//} else if len(line) == 0 || (strings.HasPrefix(line, "#") && !strings.Contains(line, ":")) {
-			//	continue
-			// Line is empty or a filename. If blank ignore.
 		} else {
-			if strings.TrimSpace(line) != "" {
+			// Only add files that are not empty and not commented out.
+			if trimmedLine != "" && !strings.HasPrefix(line, "#") {
 				parser.files = append(parser.files, line)
 			}
 		}
