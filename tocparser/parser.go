@@ -44,7 +44,7 @@ func (parser *Parser) LoadString(content string) bool {
 			// Line is a comment
 		} else if len(line) == 0 || (strings.HasPrefix(line, "#") && !strings.Contains(line, ":")) {
 			continue
-			// Line is a empty or a filename. If blank ignore.
+			// Line is empty or a filename. If blank ignore.
 		} else {
 			if strings.TrimSpace(line) != "" {
 				parser.files = append(parser.files, line)
@@ -90,7 +90,7 @@ func (parser *Parser) GetEntry(name string) string {
 	return ""
 }
 
-// GetEntry Get an entry. Returns the default value if entry is not found.
+// GetEntryOrDefault Get an entry. Returns the default value if entry is not found.
 func (parser *Parser) GetEntryOrDefault(name string, defaultValue string) string {
 	if value, found := parser.values[name]; found {
 		return value
@@ -104,7 +104,7 @@ func (parser *Parser) GetTitle() string {
 	return parser.GetEntryOrDefault("Title", "")
 }
 
-// GetTitle Gets the author of the addon or an empty string otherwise.
+// GetAuthor Gets the author of the addon or an empty string otherwise.
 func (parser *Parser) GetAuthor() string {
 	return parser.GetEntryOrDefault("Author", "")
 }
@@ -114,12 +114,12 @@ func (parser *Parser) GetInterface() string {
 	return parser.GetEntryOrDefault("Interface", "")
 }
 
-// GetFileList Gets a list of files referenced in the TOC file.
+// GetFiles Gets a list of files referenced in the TOC file.
 func (parser *Parser) GetFiles() []string {
 	return parser.files
 }
 
-// GetFileList Gets a list of files referenced in the TOC file.
+// GetNumFiles Gets a list of files referenced in the TOC file.
 func (parser *Parser) GetNumFiles() int {
 	return len(parser.files)
 }
