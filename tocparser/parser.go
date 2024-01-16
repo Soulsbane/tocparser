@@ -39,11 +39,12 @@ func (parser *Parser) LoadString(content string) bool {
 			if len(values) == 2 {
 				key := strings.Trim(values[0], " ")
 				value := strings.Trim(values[1], " ")
+
 				parser.AddEntry(key, value)
 			}
 			// Line is a comment
-		} else if len(line) == 0 || (strings.HasPrefix(line, "#") && !strings.Contains(line, ":")) {
-			continue
+			//} else if len(line) == 0 || (strings.HasPrefix(line, "#") && !strings.Contains(line, ":")) {
+			//	continue
 			// Line is empty or a filename. If blank ignore.
 		} else {
 			if strings.TrimSpace(line) != "" {
