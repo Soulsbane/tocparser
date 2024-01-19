@@ -48,6 +48,14 @@ func TestParser_LoadString(t *testing.T) {
 	is.Equal(parser.GetInterface(), "90001")
 }
 
+func TestParser_LoadFileNotFound(t *testing.T) {
+	is := is.New(t)
+	parser := New()
+
+	err := parser.LoadFile("NotFound.toc")
+	is.Equal(err.Error(), "Failed to read file: open NotFound.toc: no such file or directory")
+}
+
 func TestParser_LoadFile(t *testing.T) {
 	is := is.New(t)
 	parser := New()
