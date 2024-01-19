@@ -57,7 +57,7 @@ func (parser *Parser) LoadFile(fileName string) error {
 	content, err := os.ReadFile(fileName)
 
 	if err != nil {
-		return err
+		return fmt.Errorf("Failed to read file: %w", err)
 	}
 
 	parser.LoadString(string(content))
