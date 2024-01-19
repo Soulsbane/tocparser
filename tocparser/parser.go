@@ -2,6 +2,7 @@ package tocparser
 
 import (
 	"fmt"
+	"io"
 	"os"
 	"strings"
 )
@@ -122,8 +123,8 @@ func (parser *Parser) GetNumFiles() int {
 }
 
 // DumpEntries outputs the key/value pairs to stdout.
-func (parser *Parser) DumpEntries() {
+func (parser *Parser) DumpEntries(writer io.Writer) {
 	for key, value := range parser.values {
-		fmt.Printf("%s => %s\n", key, value)
+		fmt.Fprintf(writer, "%s => %s\n", key, value)
 	}
 }

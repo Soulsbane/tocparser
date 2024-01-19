@@ -1,6 +1,7 @@
 package tocparser
 
 import (
+	"bytes"
 	"github.com/matryer/is"
 	"testing"
 )
@@ -79,4 +80,16 @@ func TestParser_LoadFile(t *testing.T) {
 	is.Equal(files[0], "Libs\\Libs.xml")
 	is.Equal(files[1], "Sample.lua")
 	is.Equal(files[2], "Config.lua")
+}
+
+func TestParser_DumpEntries(t *testing.T) {
+	var output bytes.Buffer
+
+	is := is.New(t)
+	parser := New()
+	simpleToc := "## Interface: 90001\n## Title: Test Addon"
+
+	parser.LoadString(simpleToc)
+	parser.DumpEntries(&output)
+	is.Equal(output.String(), "Interface => 90001\nTitle => Test Addon\n")
 }
