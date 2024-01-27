@@ -1,6 +1,6 @@
 # Description
 
-A simple Golang library to parse World of Warcraft TOC files.
+A simple Golang library to read World of Warcraft TOC files.
 
 ## Usage
 
